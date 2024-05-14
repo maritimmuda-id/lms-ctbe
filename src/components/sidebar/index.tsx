@@ -2,12 +2,14 @@
 
 import Link from 'next/link';
 
-import { ImUser } from '@react-icons/all-files/im/ImUser';
-import { IoBookSharp } from '@react-icons/all-files/io5/IoBookSharp';
-import { FaTasks } from '@react-icons/all-files/fa/FaTasks';
-import { IoLogOutSharp } from '@react-icons/all-files/io5/IoLogOutSharp';
-import { MdDashboard } from '@react-icons/all-files/md/MdDashboard';
-import { MdAssignment } from '@react-icons/all-files/md/MdAssignment';
+import { ImUser } from 'react-icons/im';
+import { IoBookSharp } from 'react-icons/io5';
+import { FaTasks } from 'react-icons/fa';
+import { IoLogOutSharp } from 'react-icons/io5';
+import { MdDashboard } from 'react-icons/md';
+import { MdAssignment } from 'react-icons/md';
+import { BsCheckAll } from 'react-icons/bs';
+
 import { useEffect, useState } from 'react';
 
 type SidebarProps = {
@@ -49,6 +51,7 @@ export default function Sidebar(props: SidebarProps) {
                 {item === 'Answers' && <FaTasks className="text-2xl" />}
                 {item === 'Dashboard' && <MdDashboard className="text-2xl" />}
                 {item === 'Assignment' && <MdAssignment className="text-2xl" />}
+                {item === 'Evaluation' && <BsCheckAll className="text-2xl" />}
               </div>
             </Link>
           ))}
@@ -63,7 +66,7 @@ export default function Sidebar(props: SidebarProps) {
         </div>
       ) : (
         <div className="fixed top-0 bottom lg:left-0 p-2 w-[80px]  overflow-y-auto text-center bg-blue-600 h-full">
-          <div className="flex items-center justify-between rounded-md px-4 text-white">
+          <div className="flex items-center justify-between rounded-md px-4 text-white p-2">
             <h1 className="font-bold text-gray-200 text-[15px]">
               <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Maritim Mengajar" />
             </h1>

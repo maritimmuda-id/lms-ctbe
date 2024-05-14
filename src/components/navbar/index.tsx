@@ -34,7 +34,7 @@ export default function Navbar() {
           </div>
         </nav>
       ) : (
-        <nav className="bg-blue-600 border-gray-200 dark:bg-gray-900 text-white">
+        <nav className="p-2 bg-blue-600 border-gray-200 dark:bg-gray-900 text-white">
           <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1">
             <div className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded-full focus:outline-none focus:shadow-outline">
               <a href="/Dashboard-User">Back</a>
