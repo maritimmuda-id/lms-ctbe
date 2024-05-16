@@ -6,8 +6,8 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
-import { signIn } from '../../auth';
-import { AuthError } from 'next-auth'
+import { signIn } from 'next-auth/react';
+import AuthError from 'next-auth'
 
 // import { signIn } from '@/auth';
 // import { AuthError } from 'next-auth';
@@ -166,21 +166,25 @@ export async function deleteUser(id: string) {
 }
 
 
-export async function authenticate(
-  prevState: string | undefined,
-  formData: FormData,
-) {
-  try {
-    await signIn('credentials', formData);
-  } catch (error) {
-    if (error instanceof AuthError) {
-      switch (error.type) {
-        case 'CredentialsSignin':
-          return 'Invalid credentials.';
-        default:
-          return 'Something went wrong.';
-      }
-    }
-    throw error;
-  }
-}
+// export async function authenticate(
+//   prevState: string | undefined,
+//   formData: FormData, // Tambahkan parameter formData
+// ) {
+//   try {
+//     await signIn('credentials', {
+//       email: formData.get('email') as string,
+//       password: formData.get('password') as string,
+//     });
+//     //window.location.href = '/dashboard';
+//   } catch (error) {
+//     // if (error instanceof AuthError) {
+//     //   switch (error) {
+//     //     case 'CredentialsSignin':
+//     //       return 'Invalid credentials.';
+//     //     default:
+//     //       return 'Something went wrong.';
+//     //   }
+//     // }
+//     throw error;
+//   }
+// }
