@@ -14,7 +14,7 @@ import {
 import { Button } from '@/app/ui/button';
 import { UserField } from '@/lib/definitions';
 
-export default function FormForm({
+export default function Form({
   users,
 }: {
   users: UserField[];
@@ -98,12 +98,13 @@ export default function FormForm({
           <input
             id="profilePicture"
             name="profilePicture"
-            type="url"
+            type="file"
             placeholder="Enter profile picture URL"
             className="block w-full rounded-md border border-gray-200 py-2 pl-3 pr-10 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
         </div>
       </div>
+      
 
       {/* Error Handling */}
       {state.message && (
