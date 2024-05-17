@@ -1,8 +1,12 @@
-import { fetchUsers } from '@/lib/data';
+import { fetchUsers } from '../../app/lib/data';
 import { useSession } from 'next-auth/react';
 import Image from 'next/image';
+import { GET } from '@/app/api/route';
+import { getServerSession } from 'next-auth';
 
 export default async function DashboardPage() {
+  // const session = await getServerSession(GET)
+  // console.log(session)
   const users = await fetchUsers();
 
   return (

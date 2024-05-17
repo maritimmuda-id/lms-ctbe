@@ -1,7 +1,7 @@
 import AdminLayout from '@/components/adminlayouts';
 import DashboardPage from '@/components/dashboard/page';
 
-const Page = () => {
+const Page = async () => {
   return (
     <>
       <AdminLayout>

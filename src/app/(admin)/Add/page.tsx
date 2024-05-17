@@ -1,5 +1,5 @@
 import Form from '@/app/ui/create-form';
-import { fetchUsers } from '@/lib/data';
+import { fetchUsers } from '@/app/lib/data';
 
 export default async function Page() {
   const users = await fetchUsers();

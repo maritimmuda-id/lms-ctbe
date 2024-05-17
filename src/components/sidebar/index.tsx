@@ -12,6 +12,7 @@ import { FaPeopleGroup } from 'react-icons/fa6';
 import { PiStudentBold } from 'react-icons/pi';
 import { LiaChalkboardTeacherSolid } from 'react-icons/lia';
 import { useEffect, useState } from 'react';
+import { signOut } from 'next-auth/react';
 
 type SidebarProps = {
   navigation: string[];
@@ -63,8 +64,17 @@ export default function Sidebar(props: SidebarProps) {
             className="p-2.5 mt-3 flex items-center justify-between rounded-md px-4 text-white duration-300 cursor-pointer 
             hover:bg-blue-900"
           >
-            <h1 className="font-bold text-gray-200 text-[15px]">Logout</h1>
-            <IoLogOutSharp className="text-2xl" />
+            <Link
+              href={'/login'}
+              onClick={() => {
+                signOut();
+              }}
+            >
+              <div className=" flex justify-between">
+                <h1 className="font-bold text-gray-200 text-[15px]">Logout</h1>
+                <IoLogOutSharp className="text-2xl ml-44" />
+              </div>
+            </Link>
           </div>
         </div>
       ) : (
@@ -89,6 +99,9 @@ export default function Sidebar(props: SidebarProps) {
                 {item === 'Answers' && <FaTasks className="text-2xl" />}
                 {item === 'Dashboard' && <MdDashboard className="text-2xl" />}
                 {item === 'Assignment' && <MdAssignment className="text-2xl" />}
+                {item === 'Add' && <FaPeopleGroup className="text-2xl" />}
+                {item === 'Students' && <PiStudentBold className="text-2xl" />}
+                {item === 'Teachers' && <LiaChalkboardTeacherSolid className="text-2xl" />}
               </div>
             </Link>
           ))}
@@ -97,7 +110,14 @@ export default function Sidebar(props: SidebarProps) {
             className="p-2.5 mt-3 flex items-center justify-between rounded-md px-4 text-white duration-300 cursor-pointer 
           hover:bg-blue-900"
           >
-            <IoLogOutSharp className="text-2xl" />
+            <Link
+              href={'/login'}
+              onClick={() => {
+                signOut();
+              }}
+            >
+              <IoLogOutSharp className="text-2xl" />
+            </Link>
           </div>
         </div>
       )}

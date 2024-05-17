@@ -22,10 +22,7 @@ const handler = NextAuth({
         SELECT * FROM users WHERE email=${credentials?.email}`;
         const user = response.rows[0];
 
-        const passwordCorrect = await compare(
-          credentials?.password || '',
-          user.password
-        );
+        const passwordCorrect = await compare(credentials?.password || '', user.password);
 
         console.log({ passwordCorrect });
 
