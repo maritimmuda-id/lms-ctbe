@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
 import { signIn } from 'next-auth/react';
-import AuthError from 'next-auth'
+import AuthError from 'next-auth';
 
 // import { signIn } from '@/auth';
 // import { AuthError } from 'next-auth';
@@ -29,7 +29,6 @@ const FormSchema = z.object({
   }),
 });
 
-
 export type State = {
   errors?: {
     name?: string[];
@@ -40,7 +39,6 @@ export type State = {
   };
   message?: string | null;
 };
-
 
 const CreateUser = FormSchema.omit({ id: true });
 
@@ -85,11 +83,9 @@ export async function createUser(prevState: State, formData: FormData) {
   }
 
   // Revalidate the cache for the users page and redirect the user.
-  revalidatePath('/dashboard/');
-  redirect('/dashboard/');
+  revalidatePath('/Dashboard/');
+  redirect('/Dashboard/');
 }
-
-
 
 // Use Zod to update the expected types
 const UpdateUser = FormSchema.pick({
@@ -99,9 +95,9 @@ const UpdateUser = FormSchema.pick({
   role: true,
   profilePicture: true,
 });
- 
+
 // ...
- 
+
 export async function updateUser(id: string, formData: FormData) {
   // Validate form using Zod
   const { name, email, password, role, profilePicture } = UpdateUser.parse({
@@ -150,21 +146,20 @@ export async function updateUser(id: string, formData: FormData) {
   }
 
   // Revalidate the cache for the users page and redirect the user.
-  revalidatePath('/dashboard/');
-  redirect('/dashboard/');
+  revalidatePath('/Dashboard/');
+  redirect('/Dashboard/');
 }
 
 export async function deleteUser(id: string) {
   try {
     await sql`DELETE FROM users WHERE id = ${id}`;
-    revalidatePath('/dashboard/users');
+    revalidatePath('/Dashboard/users');
   } catch (error) {
     return {
       message: 'Database Error: Failed to Delete User',
     };
   }
 }
-
 
 // export async function authenticate(
 //   prevState: string | undefined,
@@ -175,7 +170,7 @@ export async function deleteUser(id: string) {
 //       email: formData.get('email') as string,
 //       password: formData.get('password') as string,
 //     });
-//     //window.location.href = '/dashboard';
+//     //window.location.href = '/Dashboard';
 //   } catch (error) {
 //     // if (error instanceof AuthError) {
 //     //   switch (error) {

@@ -2,12 +2,15 @@
 
 import Link from 'next/link';
 
-import { ImUser } from '@react-icons/all-files/im/ImUser';
-import { IoBookSharp } from '@react-icons/all-files/io5/IoBookSharp';
-import { FaTasks } from '@react-icons/all-files/fa/FaTasks';
-import { IoLogOutSharp } from '@react-icons/all-files/io5/IoLogOutSharp';
-import { MdDashboard } from '@react-icons/all-files/md/MdDashboard';
-import { MdAssignment } from '@react-icons/all-files/md/MdAssignment';
+import { ImUser } from 'react-icons/im';
+import { IoBookSharp } from 'react-icons/io5';
+import { FaTasks } from 'react-icons/fa';
+import { IoLogOutSharp } from 'react-icons/io5';
+import { MdDashboard } from 'react-icons/md';
+import { MdAssignment } from 'react-icons/md';
+import { FaPeopleGroup } from 'react-icons/fa6';
+import { PiStudentBold } from 'react-icons/pi';
+import { LiaChalkboardTeacherSolid } from 'react-icons/lia';
 import { useEffect, useState } from 'react';
 
 type SidebarProps = {
@@ -49,6 +52,9 @@ export default function Sidebar(props: SidebarProps) {
                 {item === 'Answers' && <FaTasks className="text-2xl" />}
                 {item === 'Dashboard' && <MdDashboard className="text-2xl" />}
                 {item === 'Assignment' && <MdAssignment className="text-2xl" />}
+                {item === 'Add' && <FaPeopleGroup className="text-2xl" />}
+                {item === 'Students' && <PiStudentBold className="text-2xl" />}
+                {item === 'Teachers' && <LiaChalkboardTeacherSolid className="text-2xl" />}
               </div>
             </Link>
           ))}

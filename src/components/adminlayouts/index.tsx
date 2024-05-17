@@ -7,7 +7,7 @@ type Proptypes = {
 export default function AdminLayout(props: Proptypes) {
   const { children } = props;
   // jika ingin menambahkan halaman silahkan masukan di dalam array navigation
-  const navigation = ['Dashboard', 'Users', 'Teachers', 'Add'];
+  const navigation = ['Dashboard', 'Students', 'Teachers', 'Add'];
   return (
     <>
       {children}
