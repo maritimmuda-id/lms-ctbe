@@ -1,4 +1,5 @@
 import Form from '@/app/ui/create-form';
+import Backgroundblue from '@/components/BackgroundsEffect';
 import { fetchUsers } from '@/lib/data';
 
 export default async function Page() {
@@ -11,5 +12,14 @@ export default async function Page() {
     role: user.role,
     profilePicture: user.profilePicture,
   }));
-  return <Form users={mappedUsers} />;
+  return (
+    <>
+      <div className="p-12">
+        <Backgroundblue />
+        <div className="relative">
+          <Form users={mappedUsers} />
+        </div>
+      </div>
+    </>
+  );
 }
