@@ -12,7 +12,7 @@ export default function Form({ users }: { users: UserField[] }) {
 
   return (
     <form action={dispatch}>
-      <div className="rounded-md bg-white/15 p-4 md:p-6 mx-auto lg:w-[500px]">
+      <div className="rounded-md bg-slate-200 p-4 md:p-6 mx-auto lg:w-[500px]">
         {/* User Name */}
         <div className="relative z-0 w-full mb-5 group">
           <input

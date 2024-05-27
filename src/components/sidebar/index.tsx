@@ -32,7 +32,9 @@ export default function Sidebar(props: SidebarProps) {
     if (session.status === 'unauthenticated') {
       router.push('/login');
     }
-  });
+
+  }, [router, session.status]);
+
 
   const handleToggle = () => {
     if (!toggle) {
@@ -82,14 +84,16 @@ export default function Sidebar(props: SidebarProps) {
     <>
       {/* Untuk mengubah ukuran layar disini */}
       {!toggle ? (
-        <div className="fixed top-0 bottom lg:left-0 p-2 lg:w-[300px] shadow-2xl overflow-y-auto text-center bg-white/15 h-full">
+
+        <div className="fixed top-0 bottom lg:left-0 p-2 lg:w-[300px] shadow-2xl overflow-y-auto text-center bg-slate-200 h-full">
+
           <div className="p-[12px] flex items-center justify-between rounded-md px-4 text-gray-900">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BED Academy</span>
             <button onClick={handleToggle}>
               <BsXLg className="text-2xl" />
             </button>
           </div>
-          <hr className="my-2 text-gray-600" />
+          <hr className="my-2 text-black" />
           {navigation.map((item, index) => (
             <Link href={item} key={index}>
               <div
@@ -111,7 +115,7 @@ export default function Sidebar(props: SidebarProps) {
               </div>
             </Link>
           ))}
-          <hr className="my-2 text-gray-600" />
+          <hr className="my-2 text-black" />
           <div
             onClick={handleLogout}
             className="p-2.5 mt-3 flex items-center justify-between rounded-md px-4 text-gray-900 duration-300 cursor-pointer 
@@ -122,7 +126,8 @@ export default function Sidebar(props: SidebarProps) {
           </div>
         </div>
       ) : (
-        <div className="fixed top-0 bottom lg:left-0 p-2 w-[80px]  overflow-y-auto text-center bg-white/15 h-full">
+
+        <div className="fixed top-0 bottom lg:left-0 p-2 w-[80px]  overflow-y-auto text-center bg-slate-200 h-full">
           <div className="flex items-center justify-between rounded-md px-4 text-gray-900">
             <h1 className="font-bold text-gray-900 text-[15px]">
               <button onClick={handleToggle}>
@@ -130,7 +135,7 @@ export default function Sidebar(props: SidebarProps) {
               </button>
             </h1>
           </div>
-          <hr className="my-2 text-gray-600" />
+          <hr className="my-2 text-black" />
           {navigation.map((item, index) => (
             <Link href={item}>
               <div
@@ -151,7 +156,7 @@ export default function Sidebar(props: SidebarProps) {
               </div>
             </Link>
           ))}
-          <hr className="my-2 text-gray-600" />
+          <hr className="my-2 text-black" />
           <div
             onClick={handleLogout}
             className="p-2.5 mt-3 flex items-center justify-between rounded-md px-4 text-gray-900 duration-300 cursor-pointer 

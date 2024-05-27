@@ -6,11 +6,47 @@ import { useFormStatus } from 'react-dom';
 import Swal from 'sweetalert2';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { FormEvent } from 'react';
+import { FormEvent, useEffect } from 'react';
 
 export default function LoginForm() {
   const router = useRouter();
   const session = useSession();
+
+  useEffect(() => {
+
+    if (session.data?.user.role == 'admin') {
+      Swal.fire({
+        icon: 'success',
+        title: 'Succesfull',
+        text: 'Login Admin is Succesfull',
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      router.push('/Dashboard')
+    }
+    if (session.data?.user.role == 'student') {
+      Swal.fire({
+        icon: 'success',
+        title: 'Succes',
+        text: 'Login Student is Succesfull',
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      router.push('/Dashboard-User')
+    }
+
+    if (session.data?.user.role == 'teacher') {
+      Swal.fire({
+        icon: 'success',
+        title: 'Succes',
+        text: 'Login Teacher is Succesfull',
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      router.push('/Dashboard-Teacher')
+    }
+
+  }, [router, session.status])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,37 +57,9 @@ export default function LoginForm() {
       redirect: false,
     });
 
-    if (!response?.error && session.data?.user.role == 'admin') {
-      Swal.fire({
-        icon: 'success',
-        title: 'Succesfull',
-        text: 'Login Admin is Succesfull',
-        showConfirmButton: false,
-        timer: 3000,
-      });
-      router.push('/Dashboard');
-      router.refresh();
-    } else if (!response?.error && session.data?.user.role == 'student') {
-      Swal.fire({
-        icon: 'success',
-        title: 'Succes',
-        text: 'Login Student is Succesful',
-        showConfirmButton: false,
-        timer: 3000,
-      });
-      router.push('/Dashboard-User');
-      router.refresh();
-    } else if (!response?.error && session.data?.user.role == 'teacher') {
-      Swal.fire({
-        icon: 'success',
-        title: 'Succes',
-        text: 'Login Teacher is Succesfull',
-        showConfirmButton: false,
-        timer: 3000,
-      });
-      router.push('/Dashboard-Teacher');
-      router.refresh();
-    } else if (response?.error) {
+
+    if (response?.error) {
+
       Swal.fire({
         icon: 'error',
         title: 'Failed',
@@ -62,7 +70,7 @@ export default function LoginForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mt-[200px] flex-1 rounded-lg bg-white/15 px-6 pb-4 pt-8  shadow-2xl  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+      <div className="mt-[200px] flex-1 rounded-lg bg-slate-200 px-6 pb-4 pt-8  shadow-2xl  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
         <h1 className="mb-3 text-2xl">Please log in to continue.</h1>
         <div className="w-full">
           <div className="relative z-0 w-full mb-5 group">
