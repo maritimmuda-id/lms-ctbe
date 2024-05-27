@@ -4,7 +4,6 @@ import { createUser } from '@/lib/actions';
 import { useFormState } from 'react-dom';
 
 import { UserField } from '@/lib/definitions';
-import Swal from 'sweetalert2';
 
 export default function Form({ users }: { users: UserField[] }) {
   const initialState = { message: '', errors: {} };
@@ -12,7 +11,7 @@ export default function Form({ users }: { users: UserField[] }) {
 
   return (
     <form action={dispatch}>
-      <div className="rounded-md bg-slate-200 p-4 md:p-6 mx-auto lg:w-[500px]">
+      <div className="rounded-md bg-white/40 p-4 md:p-6 mx-auto lg:w-[500px]">
         {/* User Name */}
         <div className="relative z-0 w-full mb-5 group">
           <input
@@ -90,7 +89,7 @@ export default function Form({ users }: { users: UserField[] }) {
           <input
             id="profilePicture"
             name="profilePicture"
-            type="text"
+            type="file"
             placeholder="Enter profile picture URL"
             className="block w-full rounded-md border border-gray-200 py-2 pl-3 pr-10 text-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />

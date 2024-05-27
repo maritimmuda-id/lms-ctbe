@@ -1,16 +1,18 @@
 import LoginForm from '@/app/ui/login-form';
- 
+import Backgroundblue from '@/components/BackgroundsEffect';
+
 export default function LoginPage() {
   return (
-    <main className="flex items-center justify-center md:h-screen">
-      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
-        <div className="flex h-20 w-full items-end rounded-lg bg-blue-500 p-3 md:h-36">
-          <div className="w-32 text-white md:w-36">
-            Helloworld
-          </div>
+    <>
+      <Backgroundblue />
+      <main className="lg:flex lg:items-center lg:justify-between md:h-screen lg:p-20 ">
+        <div className="lg:relative absolute lg:w-[500px]">
+          <p className="text-blue-700 font-bold text-4xl lg:text-7xl lg:mt-0 text-center mt-10">Welcome to LMS CTBE</p>
         </div>
-        <LoginForm />
-      </div>
-    </main>
+        <div className="relative mx-auto flex w-full max-w-[500px] flex-col  p-4 md:-mt-32">
+          <LoginForm />
+        </div>
+      </main>
+    </>
   );
 }

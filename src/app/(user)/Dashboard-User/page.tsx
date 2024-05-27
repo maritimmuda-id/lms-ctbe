@@ -1,13 +1,15 @@
 import Navbar from '@/components/navbar';
 import UsersLayout from '@/components/userslayouts';
+import ProtectedRoute from '@/components/Protected';
 
 const DashboardUsers = () => {
   return (
     <>
-      <UsersLayout>
-        <Navbar />
-        <div className="flex justify-center "></div>
-      </UsersLayout>
+      <ProtectedRoute>
+        <UsersLayout>
+          <div className="flex justify-center "></div>
+        </UsersLayout>
+      </ProtectedRoute>
     </>
   );
 };
