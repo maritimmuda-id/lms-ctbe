@@ -32,7 +32,9 @@ export default function Sidebar(props: SidebarProps) {
     if (session.status === 'unauthenticated') {
       router.push('/login');
     }
+
   }, [router, session.status]);
+
 
   const handleToggle = () => {
     if (!toggle) {
@@ -82,7 +84,9 @@ export default function Sidebar(props: SidebarProps) {
     <>
       {/* Untuk mengubah ukuran layar disini */}
       {!toggle ? (
+
         <div className="fixed top-0 bottom lg:left-0 p-2 lg:w-[300px] shadow-2xl overflow-y-auto text-center bg-slate-200 h-full">
+
           <div className="p-[12px] flex items-center justify-between rounded-md px-4 text-gray-900">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">BED Academy</span>
             <button onClick={handleToggle}>
@@ -122,6 +126,7 @@ export default function Sidebar(props: SidebarProps) {
           </div>
         </div>
       ) : (
+
         <div className="fixed top-0 bottom lg:left-0 p-2 w-[80px]  overflow-y-auto text-center bg-slate-200 h-full">
           <div className="flex items-center justify-between rounded-md px-4 text-gray-900">
             <h1 className="font-bold text-gray-900 text-[15px]">

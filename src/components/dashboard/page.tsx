@@ -1,10 +1,13 @@
 import { fetchUsers } from '@/lib/data';
+
 import Carddata from '../carddata';
+
 
 export default async function DashboardPage() {
   const users = await fetchUsers();
 
   return (
+
     <>
 
       <main className="lg:relative lg:min-h-screen  p-6 lg:ml-80 lg:mr-10 ">
